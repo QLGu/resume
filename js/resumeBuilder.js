@@ -207,15 +207,17 @@ var projects = {
 
 var map = {};
 
-
+// Simple formatter to replace data in template strings
 function formatData(template, data) {
 	return template.replace("%data%", data);
 };
 
+// Create the google map on the page
 map.display = function() {
 	$("#mapDiv").append(googleMap);
 };
 
+// Display skills section
 bio.displaySkills = function() {
 	if (bio.skills != null) {
 		$("#header").append(HTMLskillsStart);
@@ -225,6 +227,7 @@ bio.displaySkills = function() {
 	};
 };
 
+// Display contacts section
 bio.displayContacts = function() {
 	if (bio.contacts != null) {
 		formattedContacts = [
@@ -240,6 +243,7 @@ bio.displayContacts = function() {
 	};
 };
 
+// Display full bio
 bio.display = function() {
 	$("#header").prepend(formatData(HTMLheaderRole, bio.role));
 	$("#header").prepend(formatData(HTMLheaderName, bio.name))
@@ -249,6 +253,7 @@ bio.display = function() {
 	bio.displaySkills();
 };
 
+// Display work history
 work.display = function() {
 	if (work.jobs != null) {
 		for (job in work.jobs) {
@@ -266,6 +271,7 @@ work.display = function() {
 	};
 };
 
+// Display projects
 projects.display = function() {
 	if (projects.projects != null) {
 		for (project in projects.projects) {
@@ -284,6 +290,7 @@ projects.display = function() {
 	};
 };
 
+// Display education
 education.display = function() {
 	if (education.schools != null) {
 		for (school in education.schools) {
@@ -316,6 +323,8 @@ education.display = function() {
 	};
 };
 
+
+//Display each page section
 bio.display();
 work.display();
 projects.display();
